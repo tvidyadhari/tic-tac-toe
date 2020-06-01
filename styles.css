@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+:root {
+    font-size: 16px;
+    --clr-background: #00c2ae;
+    --clr-gap: #00a694;
+    --clr-x: #545454;
+    --clr-o: #f2ecd0;
+    --fs-cell: 5rem;
+    --fs-body: 1.5rem;
+    --cell-len: 5rem;
+    --ff-primary: 'Balsamiq Sans', cursive;
+    --ff-secondary: monospace;
+}
+
+@media (min-width: 400px) {
+    :root {
+        --fs-cell: 5rem;
+        --fs-body: 1.5rem;
+        --cell-len: 8rem;
+    }
+}
+body {
+    font-family: var(--ff-secondary);
+    width: 100vw;
+    height: 100vh;
+    background: var(--clr-background);
+    font-size: var(--fs-body);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow: hidden;
+    letter-spacing: 2px;
+}
+.message {
+    font-size: calc(1.5*var(--fs-body));
+}
+.cell {
+    display: flex;
+    font-size: var(--fs-cell);
+    justify-content: center;
+    align-items: center;
+    height: var(--cell-len);
+    background: var(--clr-background);
+    font-family: var(--ff-primary);
+}
+.game-grid {
+    display: grid;
+    background: var(--clr-gap);
+    grid-template-columns: repeat(3, var(--cell-len));
+    grid-gap: 8px;
+}
+.x { color: var(--clr-x); }
+.o { color: var(--clr-o); }
+.disabled { pointer-events: none; }
+.btn {
+    background: var(--clr-gap);
+    border: 1px solid var(--clr-x);
+    padding: 1em 2em;
+}
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.2em 1em 0 rgba(0, 0, 0, 0.5);
+    transform: translateY(-0.25em);
+    transition: transform 150ms;
+}
